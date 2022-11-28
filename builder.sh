@@ -49,8 +49,8 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 #
 # HOSST = build host
 # USEER = build user
-# MIUI = Low Dimens
-# OSS = High Dimens
+# MIUI = High Dimens
+# OSS = Low Dimens
 
 export CHATID API_BOT
 
