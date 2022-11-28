@@ -37,6 +37,8 @@ echo -e "$green << setup dirs >> \n $white"
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
+echo memulai script
+
 # Now u can chose which things need to be modified
 #
 # DEVICE = your device codename
