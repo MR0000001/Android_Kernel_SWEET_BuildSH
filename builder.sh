@@ -56,6 +56,7 @@ export CHATID API_BOT
 
 # Kernel build release tag
 KRNL_REL_TAG="Reno10P"
+DEVICE="Redmi note 10 pro"
 KERNEL_NAME="AGHISNA_KERNEL"
 CODENAME="SWEET"
 DEFCONFIG="sweet_defconfig"
@@ -177,6 +178,7 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
                 tg_post_msg "Kernel berhasil di buat. uploading..." "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
+                tg_post_msg "Uwisss" "$CHATID"
                 cd ..
                 rm -rf error.log
                 rm -rf out
