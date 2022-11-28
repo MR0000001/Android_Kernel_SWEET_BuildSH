@@ -37,8 +37,6 @@ echo -e "$green << setup dirs >> \n $white"
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-echo memulai script
-
 # Now u can chose which things need to be modified
 #
 # DEVICE = your device codename
@@ -51,22 +49,21 @@ echo memulai script
 #
 # HOSST = build host
 # USEER = build user
-#
-# MIUI = LOW DIMENS
-# OSS = HIGH DIMENS
+# MIUI = Low Dimens
+# OSS = High Dimens
 
 export CHATID API_BOT MIUI
 
 if [ "$MIUI" == yes  ];
 then
 DEVICE="REDMI NOTE 10 PRO & PRO MAX (MIUI)"
-KERNEL_NAME="Aghisna-Kernel-Miui"
+KERNEL_NAME="AGHISNA_KERNEL-MIUI"
 CODENAME="SWEET"
 # revert commit
 git revert 87b02344b6ffb053fdaadee8b5649d9377b9d47e --no-edit
 else
 DEVICE="REDMI NOTE 10 PRO & PRO MAX (OSS)"
-KERNEL_NAME="Aghisna-Kernel-Oss"
+KERNEL_NAME="AGHISNA_KERNEL-OSS"
 CODENAME="SWEET"
 # cherry pick commit
 git cherry-pick 87b02344b6ffb053fdaadee8b5649d9377b9d47e
@@ -74,15 +71,15 @@ git cherry-pick --skip
 fi
 
 # Kernel build release tag
-KRNL_REL_TAG="INDONESIA"
+KRNL_REL_TAG="Reno10P"
 
 DEFCONFIG="sweet_defconfig"
 
-AnyKernel="https://github.com/RooGhz720/Anykernel3"
+AnyKernel="https://github.com/shashank1439/AnyKernel3"
 AnyKernelbranch="master"
 
 HOSST="MyLabs"
-USEER="AghisnaID"
+USEER="aghisna"
 
 # setup telegram env
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
@@ -205,4 +202,3 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 rm -rf testing.log
                 exit
         fi
-
