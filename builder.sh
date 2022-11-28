@@ -52,32 +52,15 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 # MIUI = Low Dimens
 # OSS = High Dimens
 
-export CHATID API_BOT MIUI
-
-if [ "$MIUI" == yes  ];
-then
-DEVICE="REDMI NOTE 10 PRO & PRO MAX (MIUI)"
-KERNEL_NAME="AGHISNA_KERNEL-MIUI"
-CODENAME="SWEET"
-# revert commit
-git revert 87b02344b6ffb053fdaadee8b5649d9377b9d47e --no-edit
-else
-DEVICE="REDMI NOTE 10 PRO & PRO MAX (OSS)"
-KERNEL_NAME="AGHISNA_KERNEL-OSS"
-CODENAME="SWEET"
-# cherry pick commit
-git cherry-pick 87b02344b6ffb053fdaadee8b5649d9377b9d47e
-git cherry-pick --skip
-fi
+export CHATID API_BOT
 
 # Kernel build release tag
 KRNL_REL_TAG="Reno10P"
-
+KERNEL_NAME="AGHISNA_KERNEL"
+CODENAME="SWEET"
 DEFCONFIG="sweet_defconfig"
-
-AnyKernel="https://github.com/shashank1439/AnyKernel3"
+AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="master"
-
 HOSST="MyLabs"
 USEER="aghisna"
 
@@ -156,7 +139,7 @@ make O=out clean && make O=out mrproper
 make "$DEFCONFIG" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
-tg_post_msg "Successful triggered Compiling kernel for $DEVICE $CODENAME" "$CHATID"
+tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE $CODENAME" "$CHATID"
 
 build_kernel || error=true
 
@@ -168,10 +151,10 @@ export dtbo="$MY_DIR"/out/arch/arm64/boot/dtbo.img
 export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
 
         if [ -f "$IMG" ]; then
-                echo -e "$green << Build completed in $(($Diff / 60)) minutes and $(($Diff % 60)) seconds >> \n $white"
+                echo -e "$green << selesai dalam $(($Diff / 60)) menit and $(($Diff % 60)) detik >> \n $white"
         else
-                echo -e "$red << Failed to compile the kernel , Check up to find the error >>$white"
-                tg_post_msg "Kernel failed to compile uploading error log"
+                echo -e "$red << Gagal dalam membangun kernel!!! , cek kembali kode anda >>$white"
+                tg_post_msg "kernel GAGAL di bangun. uploading log"
                 tg_error "error.log" "$CHATID"
                 tg_post_msg "done" "$CHATID"
                 rm -rf out
@@ -192,9 +175,8 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
-                tg_post_msg "Kernel successfully compiled uploading ZIP" "$CHATID"
+                tg_post_msg "Kernel berhasil di buat. uploading..." "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
-                tg_post_msg "done" "$CHATID"
                 cd ..
                 rm -rf error.log
                 rm -rf out
