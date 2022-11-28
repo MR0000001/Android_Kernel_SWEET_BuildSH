@@ -1,5 +1,21 @@
 #!/bin/bash
 #
+# Script For Building Android arm64 Kernel
+#
+# Copyright (C) 2021-2022 RooGhz720 <rooghz720@gmail.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 # Setup colour for the script
 yellow='\033[0;33m'
@@ -187,3 +203,4 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 rm -rf testing.log
                 exit
         fi
+
