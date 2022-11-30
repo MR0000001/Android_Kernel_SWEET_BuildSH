@@ -1,23 +1,14 @@
-jobs:
-  runner:
-    runs-on: ubuntu-latest
+name: CI
 
-    steps:
-      - name: dump
-        run: |
-          echo 'github.workspace === ${{ github.workspace }}'
-          echo "GITHUB_WORKSPACE === $GITHUB_WORKSPACE"
-          echo 'runner.workspace === ${{ runner.workspace }}'
-          echo "RUNNER_WORKSPACE === $RUNNER_WORKSPACE"
-  container:    
+on:
+
+jobs:
+  ci:
     runs-on: ubuntu-latest
-    container:
-      image: node:14.16
-      
     steps:
-      - name: dump
-        run: |
-          echo 'github.workspace === ${{ github.workspace }}'
-          echo "GITHUB_WORKSPACE === $GITHUB_WORKSPACE"
-          echo 'runner.workspace === ${{ runner.workspace }}'
-          echo "RUNNER_WORKSPACE === $RUNNER_WORKSPACE"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+          cache: npm
+      - run: echo "halo"
