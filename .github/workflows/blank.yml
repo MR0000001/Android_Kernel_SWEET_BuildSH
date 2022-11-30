@@ -1,6 +1,6 @@
 jobs:
   runner:
-    runs-on: panchajanya1999/archlinux:latest
+    runs-on: ubuntu:latest
 
     steps:
       - name: dump
