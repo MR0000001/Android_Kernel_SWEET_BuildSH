@@ -65,7 +65,7 @@ HOSST="MyLabs"
 USEER="aghisna"
 
 # setup telegram env
-export Tgl=$(date +"%d-%m-%Y-%I-%M")
+export Tgl=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
 
