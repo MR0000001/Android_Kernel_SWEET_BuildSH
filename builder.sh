@@ -58,7 +58,6 @@ export CHATID API_BOT
 KRNL_REL_TAG="Reno10P"
 DEVICE="Redmi note 10 pro"
 KERNEL_NAME="AGHISNA_KERNEL"
-CODENAME="SWEET"
 DEFCONFIG="sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="master"
@@ -66,6 +65,7 @@ HOSST="MyLabs"
 USEER="aghisna"
 
 # setup telegram env
+export Tgl=$(date +"%d-%m-%Y-%I-%M")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
 
@@ -84,7 +84,7 @@ tg_post_build() {
         -F chat_id="$2" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="$3 build finished in $(($Diff / 60)) minutes and $(($Diff % 60)) seconds | <b>MD5 Checksum : </b><code>$MD5CHECK</code>"
+        -F caption="$3 build finished in $(($Diff / 60)) minutes and $(($Diff % 60)) seconds | <b>MD5 Checksum : </b><code>$MD5CHECK</code> | Build Oleh @RooGhz720"
 }
 
 tg_error() {
@@ -172,7 +172,7 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 cp -r "$dtbo" zip/
                 cp -r "$dtb" zip/
                 cd zip
-                export ZIP="$KERNEL_NAME"-"$KRNL_REL_TAG"-"$CODENAME"
+                export ZIP="$KERNEL_NAME"-"$KRNL_REL_TAG"-"$Tgl"
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
