@@ -46,6 +46,11 @@ export CHATID API_BOT TYPE_KERNEL
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
 
+pwd
+ls
+
+sleep 9999
+
 if [ "oss" == oss  ];
 then
 TYPE="OSS"
