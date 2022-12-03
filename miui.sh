@@ -69,7 +69,6 @@ fi
 
 
 # Kernel build release tag
-VARIANT="$TYPE"
 TYPE="MIUI"
 DEVICE="Redmi note 10 pro"
 KERNEL_NAME="AGHISNA"
@@ -155,7 +154,7 @@ make O=out clean && make O=out mrproper
 make "$DEFCONFIG" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
-tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE $VARIANT" "$CHATID"
+tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE - MIUI VERSION" "$CHATID"
 
 build_kernel || error=true
 

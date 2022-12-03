@@ -40,11 +40,10 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 # MIUI = High Dimens
 # OSS = Low Dimens
 
-export CHATID API_BOT TYPE_KERNEL tg_sticker
+export CHATID API_BOT TYPE_KERNEL
 
 
 # Kernel build release tag
-VARIANT="$TYPE"
 TYPE="OSS"
 DEVICE="Redmi note 10 pro"
 KERNEL_NAME="AGHISNA"
@@ -60,7 +59,7 @@ export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
 
 
-function tg_sticker() {
+tg_sticker() {
     curl -s -X POST "https://api.telegram.org/bot$API_BOT/sendSticker" \
         -d sticker="CAACAgUAAxkBAAE9T_9f4UfHZAPwGba5Nyf2Vo1gvcs23wAC6QUAAvjGxQofnl0w8S9XxB4E" \
         -d chat_id=$chat_id
@@ -137,7 +136,7 @@ make O=out clean && make O=out mrproper
 make "$DEFCONFIG" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
-tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE $VARIANT" "$CHATID"
+tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE - OSS VERSION" "$CHATID"
 
 build_kernel || error=true
 
@@ -175,7 +174,7 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
                 tg_post_msg "Kernel berhasil di buat. uploading..." "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
-                tg_post_msg "$tg_sticker" "$CHATID"
+                tg_post_msg tg_sticker "$CHATID"
                 cd ..
                 rm -rf error.log
                 rm -rf out
