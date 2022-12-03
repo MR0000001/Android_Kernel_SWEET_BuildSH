@@ -43,16 +43,10 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # Config
-git config --global user.name "RooGhz720"
-git config --global user.email "RooGhz720@gmail.com"
+
 
 pwd
 ls
-sleep 10
-git remote add bedul https://github.com/itsshashanksp/kernel_xiaomi_sm6150.git
-git fetch bedul
-git cherry-pick 87b02344b6ffb053fdaadee8b5649d9377b9d47e
-
 sleep 50
 
 # Kernel build release tag
