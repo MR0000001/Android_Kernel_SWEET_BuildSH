@@ -36,20 +36,7 @@ echo -e "$green << setup dirs >> \n $white"
 
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
-
-# Now u can chose which things need to be modified
-#
-# DEVICE = your device codename
-# KERNEL_NAME = the name of ur kranul
-#
-# DEFCONFIG = defconfig that will be used to compile the kernel
-#
-# AnyKernel = the url of your modified anykernel script
-# AnyKernelbranch = the branch of your modified anykernel script
-#
-# HOSST = build host
-# USEER = build user
-# 
+ 
 # MIUI = High Dimens
 # OSS = Low Dimens
 
@@ -57,12 +44,10 @@ export CHATID API_BOT TYPE_KERNEL tg_sticker
 
 # Configuration
 
-if [ "$TYPE_KERNEL" == Ganteng ]; then
-git revert d4894ae2c92d51fe9e096ce6f5e2fdbdd00f6628
-git cherry-pick --skip
+if [ "oss" == oss ]; then
+git revert 5e35eea50ec8b148a7544a9db0dafabff42132de --no-edit
 else
-echo "Error"
-exit 1
+echo "Lanjut"
 fi
 
 # Kernel build release tag
