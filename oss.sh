@@ -49,15 +49,20 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 #
 # HOSST = build host
 # USEER = build user
+# 
 # MIUI = High Dimens
 # OSS = Low Dimens
 
-export CHATID API_BOT
+export CHATID API_BOT TYPE_KERNEL tg_sticker
+
+# Configuration
+git revert d4894ae2c92d51fe9e096ce6f5e2fdbdd00f6628
+git cherry-pick --skip
 
 # Kernel build release tag
-KRNL_REL_TAG="Reno10P"
+TYPE="OSS"
 DEVICE="Redmi note 10 pro"
-KERNEL_NAME="AGHISNA_KERNEL"
+KERNEL_NAME="AGHISNA"
 DEFCONFIG="sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="master"
@@ -65,9 +70,16 @@ HOSST="MyLabs"
 USEER="aghisna"
 
 # setup telegram env
-export Tgl=$(date +"%d-%m-%Y")
+export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
+
+
+function tg_sticker() {
+    curl -s -X POST "https://api.telegram.org/bot$API_BOT/sendSticker" \
+        -d sticker="CAACAgUAAxkBAAE9T_9f4UfHZAPwGba5Nyf2Vo1gvcs23wAC6QUAAvjGxQofnl0w8S9XxB4E" \
+        -d chat_id=$chat_id
+}
 
 tg_post_msg() {
         curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
@@ -172,13 +184,13 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 cp -r "$dtbo" zip/
                 cp -r "$dtb" zip/
                 cd zip
-                export ZIP="$KERNEL_NAME"-"$KRNL_REL_TAG"-"$Tgl"
+                export ZIP="$KERNEL_NAME"-"$TYPE"-"$TGL"
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
                 tg_post_msg "Kernel berhasil di buat. uploading..." "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
-                tg_post_msg "Uwisss " "$CHATID"
+                tg_post_msg "$tg_sticker" "$CHATID"
                 cd ..
                 rm -rf error.log
                 rm -rf out
