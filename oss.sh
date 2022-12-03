@@ -43,6 +43,9 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # Config
+git config --global user.name "RooGhz720"
+git config --global user.email "RooGhz720@gmail.com"
+
 if [ "oss" == oss  ];
 then
 # revert commit
