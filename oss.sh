@@ -56,8 +56,14 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL tg_sticker
 
 # Configuration
+
+if [ "$TYPE_KERNEL" == Ganteng ]; then
 git revert d4894ae2c92d51fe9e096ce6f5e2fdbdd00f6628
 git cherry-pick --skip
+else
+echo "Error"
+exit 1
+fi
 
 # Kernel build release tag
 TYPE="OSS"
