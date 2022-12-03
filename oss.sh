@@ -51,8 +51,7 @@ ls
 sleep 50
 
 # revert commit
-git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
-exit
+git cherry-pick 87b02344b6ffb053fdaadee8b5649d9377b9d47e
 
 sleep 150
 
