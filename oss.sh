@@ -48,24 +48,16 @@ git config --global user.email "RooGhz720@gmail.com"
 
 pwd
 ls
+sleep 150
 
-sleep 9999
-
-if [ "oss" == oss  ];
-then
-TYPE="OSS"
-KERNEL_NAME="AGHISNA"
 # revert commit
 git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
-else
-echo "$ERROR"
-# cherry pick commit
-git cherry-pick 970d412d49f62e7dc15502693f61efa694a3c4cf
-git cherry-pick --skip
-fi
 
+sleep 50
 
 # Kernel build release tag
+TYPE="OSS"
+KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
 DEFCONFIG="sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
