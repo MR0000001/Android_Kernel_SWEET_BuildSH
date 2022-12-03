@@ -43,18 +43,14 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # Config
-git config --global user.name "RooGhz720"
-git config --global user.email "RooGhz720@gmail.com"
-
-if [ "oss" == oss ];
+if [ "oss" == oss  ];
 then
-git cherry-pick 87b02344b6ffb053fdaadee8b5649d9377b9d47e
-git cherry-pick --skip
-git status
-echo "Switching to oss version"
+# revert commit
+git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
 else
-git reset
-echo "miui version"
+# cherry pick commit
+git cherry-pick 970d412d49f62e7dc15502693f61efa694a3c4cf
+git cherry-pick --skip
 fi
 
 

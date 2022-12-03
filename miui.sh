@@ -42,19 +42,6 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 export CHATID API_BOT TYPE_KERNEL
 
-# Config
-git config --global user.name "RooGhz720"
-git config --global user.email "RooGhz720@gmail.com"
-
-if [ "memeui" == memeui ];
-then
-git revert a6c31f993ef66810b90304432b42022a5a1c3808 --no-edit
-echo "Switching to miui version"
-else
-git cherry-pick --skip
-echo "OSS version"
-fi
-
 
 # Kernel build release tag
 TYPE="MIUI"
