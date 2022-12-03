@@ -49,10 +49,10 @@ git config --global user.name "RooGhz720"
 if [ "oss" == oss ];
 then
 git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
-echo "Switching to miui version"
+echo "Switching to oss version"
 else
 git cherry-pick --skip
-echo "OSS version"
+echo "miui version"
 fi
 
 
