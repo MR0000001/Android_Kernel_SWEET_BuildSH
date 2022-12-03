@@ -43,12 +43,12 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # Config
-git config --global user.email "RooGhz720@gmail.com"
 git config --global user.name "RooGhz720"
+git config --global user.email "RooGhz720@gmail.com"
 
 if [ "oss" == oss ];
 then
-git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
+git revert 5e35eea50ec8b148a7544a9db0dafabff42132de --no-edit
 echo "Switching to oss version"
 else
 git cherry-pick --skip
@@ -187,7 +187,7 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
                 tg_post_msg "Kernel berhasil di buat. uploading..." "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
-                tg_post_msg tg_sticker "$CHATID"
+                tg_post_msg "$tg_sticker" "$CHATID"
                 cd ..
                 rm -rf error.log
                 rm -rf out

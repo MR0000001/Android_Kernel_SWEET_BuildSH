@@ -37,26 +37,14 @@ echo -e "$green << setup dirs >> \n $white"
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-# Now u can chose which things need to be modified
-#
-# DEVICE = your device codename
-# KERNEL_NAME = the name of ur kranul
-#
-# DEFCONFIG = defconfig that will be used to compile the kernel
-#
-# AnyKernel = the url of your modified anykernel script
-# AnyKernelbranch = the branch of your modified anykernel script
-#
-# HOSST = build host
-# USEER = build user
 # MIUI = High Dimens
 # OSS = Low Dimens
 
 export CHATID API_BOT TYPE_KERNEL
 
 # Config
-git config --global user.email "RooGhz720@gmail.com"
 git config --global user.name "RooGhz720"
+git config --global user.email "RooGhz720@gmail.com"
 
 if [ "memeui" == memeui ];
 then
