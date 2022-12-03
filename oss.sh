@@ -48,12 +48,13 @@ git config --global user.email "RooGhz720@gmail.com"
 
 if [ "oss" == oss ];
 then
-git revert 5e35eea50ec8b148a7544a9db0dafabff42132de --no-edit
+git revert  a6c31f9
+
 echo "Switching to oss version"
 else
 git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
 git cherry-pick --skip
-echo "miui version ceked"
+echo "miui version"
 fi
 
 
