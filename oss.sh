@@ -48,12 +48,12 @@ git config --global user.email "RooGhz720@gmail.com"
 
 pwd
 ls
-sleep 50
-
-# revert commit
+sleep 10
+git remote add bedul https://github.com/itsshashanksp/kernel_xiaomi_sm6150.git
+git fetch bedul
 git cherry-pick 87b02344b6ffb053fdaadee8b5649d9377b9d47e
 
-sleep 150
+sleep 50
 
 # Kernel build release tag
 TYPE="OSS"
