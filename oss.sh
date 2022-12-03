@@ -47,7 +47,7 @@ export CHATID API_BOT TYPE_KERNEL tg_sticker
 
 # Configuration
 
-if [ "TYPE_KERNEL" == Ganteng ];
+if [ "Ganteng" == Ganteng ];
 then
 git revert 5e35eea50ec8b148a7544a9db0dafabff42132de --no-edit
 echo "Switching to OSS Version"
