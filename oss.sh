@@ -53,7 +53,7 @@ echo "Switching to oss version"
 else
 git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
 git cherry-pick --skip
-echo "miui version"
+echo "miui version ceked"
 fi
 
 
