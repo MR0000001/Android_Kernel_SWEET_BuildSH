@@ -40,21 +40,10 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 # MIUI = High Dimens
 # OSS = Low Dimens
 
-git config --global user.email "RooGhz720@gmail.com"
-git config --global user.name "RooGhz720"
-
 export CHATID API_BOT TYPE_KERNEL tg_sticker
 
 # Configuration
 
-if [ "Ganteng" == Ganteng ];
-then
-git revert 5e35eea50ec8b148a7544a9db0dafabff42132de --no-edit
-echo "Switching to OSS Version"
-else
-git cherry-pick 5e35eea50ec8b148a7544a9db0dafabff42132de
-git cherry-pick --skip
-fi
 
 # Kernel build release tag
 VARIANT="$TYPE"
