@@ -45,12 +45,15 @@ export CHATID API_BOT TYPE_KERNEL tg_sticker
 # Configuration
 
 if [ "oss" == oss ]; then
+git config --global user.email "RooGhz720@gmail.com"
+git config --global user.name "RooGhz720"
 git revert 5e35eea50ec8b148a7544a9db0dafabff42132de --no-edit
 else
-echo "Lanjut"
+echo "Switching to OSS Version"
 fi
 
 # Kernel build release tag
+VARIANT="$TYPE"
 TYPE="OSS"
 DEVICE="Redmi note 10 pro"
 KERNEL_NAME="AGHISNA"
@@ -143,7 +146,7 @@ make O=out clean && make O=out mrproper
 make "$DEFCONFIG" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
-tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE $CODENAME" "$CHATID"
+tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE $VARIANT" "$CHATID"
 
 build_kernel || error=true
 

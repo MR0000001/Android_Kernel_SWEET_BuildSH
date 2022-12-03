@@ -55,6 +55,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # Kernel build release tag
+VARIANT="$TYPE"
 TYPE="MIUI"
 DEVICE="Redmi note 10 pro"
 KERNEL_NAME="AGHISNA"
@@ -140,7 +141,7 @@ make O=out clean && make O=out mrproper
 make "$DEFCONFIG" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
-tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE $CODENAME" "$CHATID"
+tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE $VARIANT" "$CHATID"
 
 build_kernel || error=true
 
