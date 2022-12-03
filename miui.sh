@@ -99,7 +99,7 @@ tg_post_build() {
         -F chat_id="$2" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="$3 build finished in $(($Diff / 60)) minutes and $(($Diff % 60)) seconds | <b>MD5 Checksum : </b><code>$MD5CHECK</code> | Build Oleh @RooGhz720"
+        -F caption="$3 Sukses $(($Diff / 60)) Menit | Varian : MIUI | <b>MD5 Checksum : </b><code>$MD5CHECK</code> | Build Oleh @RooGhz720"
 }
 
 tg_error() {
@@ -170,7 +170,7 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 echo -e "$green << selesai dalam $(($Diff / 60)) menit and $(($Diff % 60)) detik >> \n $white"
         else
                 echo -e "$red << Gagal dalam membangun kernel!!! , cek kembali kode anda >>$white"
-                tg_post_msg "kernel GAGAL di bangun. uploading log"
+                tg_post_msg "GAGAL!!! uploading log"
                 tg_error "error.log" "$CHATID"
                 tg_post_msg "done" "$CHATID"
                 rm -rf out
