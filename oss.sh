@@ -52,6 +52,7 @@ sleep 50
 
 # revert commit
 git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
+exit
 
 sleep 150
 
