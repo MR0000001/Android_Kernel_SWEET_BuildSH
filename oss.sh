@@ -48,12 +48,12 @@ git config --global user.email "RooGhz720@gmail.com"
 
 pwd
 ls
-sleep 150
+sleep 50
 
 # revert commit
 git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
 
-sleep 50
+sleep 150
 
 # Kernel build release tag
 TYPE="OSS"
