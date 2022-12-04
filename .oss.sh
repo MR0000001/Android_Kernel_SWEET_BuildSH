@@ -19,6 +19,7 @@
 
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
+git fetch --all
 
 if [ "oss" == oss ];
 then
