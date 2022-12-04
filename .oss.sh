@@ -19,7 +19,8 @@
 
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
-git revert 87b02344b6ffb053fdaadee8b5649d9377b9d47e --no-edit
+git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
+git cherry-pick --skip
 pwd
 ls
 sleep 60
