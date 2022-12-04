@@ -42,12 +42,12 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 export CHATID API_BOT TYPE_KERNEL
 
+# config
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
-# git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
 git remote add addon https://github.com/RooGhz720/RooGhz720.git
 git fetch addon
-sleep 10
+sleep 5
 git cherry-pick e1d3bc0257977dbe64b2fa3e9506d21735ee8fef
 git cherry-pick --skip
 git status
@@ -67,13 +67,6 @@ USEER="aghisna"
 export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
-
-
-tg_sticker() {
-    curl -s -X POST "https://api.telegram.org/bot$API_BOT/sendSticker" \
-        -d sticker="CAACAgUAAxkBAAE9T_9f4UfHZAPwGba5Nyf2Vo1gvcs23wAC6QUAAvjGxQofnl0w8S9XxB4E" \
-        -d chat_id=$chat_id
-}
 
 tg_post_msg() {
         curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
@@ -184,7 +177,7 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
                 tg_post_msg "Kernel berhasil di buat. uploading..." "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
-                tg_post_msg "$tg_sticker" "$CHATID"
+                tg_post_msg "===============================" "$CHATID"
                 cd ..
                 rm -rf error.log
                 rm -rf out
