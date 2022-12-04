@@ -47,11 +47,12 @@ export CHATID API_BOT TYPE_KERNEL
 # git revert d4894ae2c92d51fe9e096ce6f5e2fdbdd00f6628 --no-edit
 # git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
 # git cherry-pick --skip
-git branch
-git remote -v
 cd ..
-pwd
 ls
+sleep 10
+cd Aghisna_Sweet_Kernel
+ls
+git status
 sleep 110
 
 
