@@ -16,10 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+GIT='git --git-dir='$PWD'/.git'
 
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
-git fetch --all
+$GIT revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
+git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
 
 if [ "oss" == oss ];
 then
