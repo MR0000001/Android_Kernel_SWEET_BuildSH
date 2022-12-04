@@ -49,6 +49,7 @@ export CHATID API_BOT TYPE_KERNEL
 # git cherry-pick --skip
 git branch
 git remote -v
+cd ..
 pwd
 ls
 sleep 110
