@@ -16,26 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-GIT='git --git-dir='$PWD'/.git'
 
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
-$GIT revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
 git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
-
-if [ "oss" == oss ];
-then
-git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
-git cherry-pick --skip
-echo "oss mode"
-else
-git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
-echo "miui version"
-fi
-
-pwd
-ls
-sleep 60
 
 # Setup colour for the script
 yellow='\033[0;33m'
@@ -61,6 +45,21 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 # OSS = Low Dimens
 
 export CHATID API_BOT TYPE_KERNEL
+
+# Config
+if [ "TYPE_KERNEL" == Ganteng ];
+then
+git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
+git cherry-pick --skip
+echo "oss mode"
+else
+git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
+echo "miui version"
+fi
+
+pwd
+ls
+sleep 60
 
 # Kernel build release tag
 TYPE="OSS"
