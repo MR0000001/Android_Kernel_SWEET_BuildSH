@@ -47,7 +47,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # Config
-if [ "TYPE_KERNEL" == Ganteng ];
+if [ "Ganteng" == Ganteng ];
 then
 git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
 git cherry-pick --skip
