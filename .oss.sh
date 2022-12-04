@@ -19,8 +19,17 @@
 
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
+if [ "oss" === oss ]; then
+echo "oss mode"
 git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
 git cherry-pick --skip
+else
+echo "miui version"
+git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
+echo "1"
+echo "2"
+echo "3"
+fi
 pwd
 ls
 sleep 60
