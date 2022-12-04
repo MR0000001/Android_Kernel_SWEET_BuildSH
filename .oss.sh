@@ -19,7 +19,7 @@
 
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
-git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
+git revert 87b02344b6ffb053fdaadee8b5649d9377b9d47e --no-edit
 
 # Setup colour for the script
 yellow='\033[0;33m'
@@ -49,11 +49,11 @@ export CHATID API_BOT TYPE_KERNEL
 # Config
 if [ "Ganteng" == Ganteng ];
 then
-git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
+git cherry-pick 87b02344b6ffb053fdaadee8b5649d9377b9d47e
 git cherry-pick --skip
 echo "oss mode"
 else
-git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
+git revert 87b02344b6ffb053fdaadee8b5649d9377b9d47e --no-edit
 echo "miui version"
 fi
 
