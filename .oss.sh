@@ -19,7 +19,7 @@
 
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
-if [ "oss" === oss ]; then
+if [ "oss" == oss ]; then
 echo "oss mode"
 git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
 git cherry-pick --skip
