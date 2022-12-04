@@ -55,7 +55,8 @@ ls
 git checkout initial
 sleep 2
 git status
-git revert 970d412d49f62e7dc15502693f61efa694a3c4cf
+git cherry-pick 87b02344b6ffb053fdaadee8b5649d9377b9d47e
+ls
 sleep 110
 
 
