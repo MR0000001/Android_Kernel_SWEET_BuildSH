@@ -50,6 +50,7 @@ git fetch addon
 sleep 10
 git cherry-pick e1d3bc0257977dbe64b2fa3e9506d21735ee8fef
 git cherry-pick --skip
+git status
 sleep 2
 
 # Kernel build release tag
@@ -61,7 +62,6 @@ AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
 USEER="aghisna"
-ERROR="SKIP OSS"
 
 # setup telegram env
 export TGL=$(date +"%d-%m-%Y")
