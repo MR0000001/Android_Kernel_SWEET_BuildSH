@@ -17,6 +17,13 @@
 # limitations under the License.
 #
 
+git config --global user.name "RooGhz720"
+git config --global user.email "RooGhz720@gmail.com"
+git revert 87b02344b6ffb053fdaadee8b5649d9377b9d47e --no-edit
+pwd
+ls
+sleep 60
+
 # Setup colour for the script
 yellow='\033[0;33m'
 white='\033[0m'
@@ -41,13 +48,6 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 # OSS = Low Dimens
 
 export CHATID API_BOT TYPE_KERNEL
-
-# Config
-
-
-pwd
-ls
-sleep 50
 
 # Kernel build release tag
 TYPE="OSS"
