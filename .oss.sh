@@ -42,23 +42,15 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 export CHATID API_BOT TYPE_KERNEL
 
-# git config --global user.name "RooGhz720"
-# git config --global user.email "RooGhz720@gmail.com"
+git config --global user.name "RooGhz720"
+git config --global user.email "RooGhz720@gmail.com"
 # git revert 970d412d49f62e7dc15502693f61efa694a3c4cf --no-edit
-# git cherry-pick a6c31f993ef66810b90304432b42022a5a1c3808
-# git cherry-pick --skip
-cd ..
-ls
+git remote add addon https://github.com/RooGhz720/RooGhz720.git
+git fetch addon
 sleep 10
-cd Aghisna_Sweet_Kernel
-ls
-git checkout initial
+git cherry-pick e1d3bc0257977dbe64b2fa3e9506d21735ee8fef
+git cherry-pick --skip
 sleep 2
-git status
-git revert 5e35eea50ec8b148a7544a9db0dafabff42132de
-ls
-sleep 110
-
 
 # Kernel build release tag
 TYPE="OSS"
