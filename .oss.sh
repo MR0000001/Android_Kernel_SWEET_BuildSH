@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-git config --global user.name "RooGhz720"
-git config --global user.email "RooGhz720@gmail.com"
-git revert 87b02344b6ffb053fdaadee8b5649d9377b9d47e --no-edit
-
 # Setup colour for the script
 yellow='\033[0;33m'
 white='\033[0m'
@@ -46,20 +42,13 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 export CHATID API_BOT TYPE_KERNEL
 
-# Config
-if [ "Ganteng" == Ganteng ];
-then
-git cherry-pick 87b02344b6ffb053fdaadee8b5649d9377b9d47e
-git cherry-pick --skip
-echo "oss mode"
-else
-git revert 87b02344b6ffb053fdaadee8b5649d9377b9d47e --no-edit
-echo "miui version"
-fi
+git config --global user.name "RooGhz720"
+git config --global user.email "RooGhz720@gmail.com"
+git revert d4894ae2c92d51fe9e096ce6f5e2fdbdd00f6628 --no-edit
 
-pwd
-ls
-sleep 60
+# Config
+echo "build start"
+sleep 10
 
 # Kernel build release tag
 TYPE="OSS"
