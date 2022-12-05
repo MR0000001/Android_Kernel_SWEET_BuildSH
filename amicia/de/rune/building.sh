@@ -20,5 +20,5 @@ ccache -M 20
 ccache -z
 wget https://raw.githubusercontent.com/RooGhz720/RooGhz720/main/amicia/de/rune/config -O $CIRRUS_WORKING_DIR/config
 bash -c "$command" || true
-bash -c "$(curl -sL https://raw.githubusercontent.com/RooGhz720/main/RooGhz720/amicia/de/rune/check_build.sh)"
+bash -c "$(curl -sL https://raw.githubusercontent.com/RooGhz720/RooGhz720/main/amicia/de/rune/check_build.sh)"
 
