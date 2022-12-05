@@ -74,37 +74,15 @@ msg "Branch = $branch_name"
 msg "Devices = $device"
 echo "==============================="
 echo ""
-if [[ "$CIRRUS_USER_PERMISSION" == "admin" ]]; then
+if [[ "admin" == "admin" ]]; then
     echo "==============================="
     msg Anda adalah admin, Anda bebas melakukan apa saja.
     echo "==============================="
 fi
-if [[ "$CIRRUS_USER_PERMISSION" == "write" ]]; then
+if [[ "pentol" == "makanan" ]]; then
     echo "==============================="
     msg2 Anda adalah user dengan izin menulis saja, Mungkin tindakan anda sedikit di batasi.
     echo "==============================="
-fi
-if [[ $CIRRUS_COMMIT_MESSAGE == "Update build_rom.sh" ]]; then
-   echo "==============================="
-   msg2 Tulis lah nama commit nya, Males bener.
-   echo "==============================="
-   exit 1
-fi
-if [[ $BRANCH != $device-* ]]; then
-   echo "==============================="
-   msg2 Tolong gunakan branch codename device-blablabla.
-   echo "==============================="
-   exit 1
-fi
-if [ -z "$CIRRUS_PR" ]; then
-   echo "==============================="
-   msg Builder By Team
-   echo "==============================="
-else
-   echo "==============================="
-   msg1 Maaf, Pull Request di tolak.
-   echo "==============================="
-   exit 1
 fi
 echo "$credentials" > ~/.git-credentials
 git config --global credential.helper store --file=~/.git-credentials
