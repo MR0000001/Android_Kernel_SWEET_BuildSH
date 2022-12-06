@@ -9,7 +9,7 @@ grep _jasmine_sprout $CIRRUS_WORKING_DIR/build.sh > /dev/null && device=jasmine_
 grep _laurel_sprout $CIRRUS_WORKING_DIR/build.sh > /dev/null && device=laurel_sprout
 grep _GM8_sprout $CIRRUS_WORKING_DIR/build.sh > /dev/null && device=GM8_sprout
 grep _maple_dsds $CIRRUS_WORKING_DIR/build.sh > /dev/null && device=maple_dsds
-rclone copy --drive-chunk-size 256M --stats 1s NFS:ccache/$name_rom/$device/ccache.tar.gz $WORKDIR -P
+rclone copy --drive-chunk-size 256M --stats 1s aghisna:ccache/$name_rom/$device/ccache.tar.gz $WORKDIR -P
 tar xzf ccache.tar.gz
 rm -rf ccache.tar.gz
 
