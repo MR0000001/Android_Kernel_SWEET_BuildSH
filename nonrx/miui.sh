@@ -73,7 +73,7 @@ tg_post_build() {
         -F chat_id="$2" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="$3 waktu: $(($Diff / 60)) Menit <br> Varian : MIUI <br> MD5 Checksum: </b><code>$MD5CHECK</code> <br> Build Oleh @RooGhz720"
+        -F caption="$3 Sukses $(($Diff / 60)) Menit | Varian : MIUI | <b>MD5 Checksum : </b><code>$MD5CHECK</code> | Build Oleh @RooGhz720"
 }
 
 tg_error() {
