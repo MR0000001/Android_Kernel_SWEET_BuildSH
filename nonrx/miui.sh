@@ -84,8 +84,8 @@ tg_sticker() {
 
 tg_post_msg() {
         curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
-        -d "parse_mode=html" \
-        -d text="$TG_TEXT"
+        -d "parse_mode=markdown" \
+        -d text="$1"
 }
 
 tg_post_build() {
@@ -192,7 +192,7 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
                 tg_sticker "CAACAgUAAxkBAAGLlS1jnv1FJAsPoU7-iyZf75TIIbD0MQACYQIAAvlQCFTxT3DFijW-FSwE"
-                tg_post_msg "$CHATID"
+                tg_post_msg "line satu \n line dua /n line tiga" "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
                 cd ..
                 rm -rf error.log
