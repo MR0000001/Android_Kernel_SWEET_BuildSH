@@ -59,13 +59,7 @@ export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
 
-# infone
-TEXT1="waktu ditempuh: $(($Diff / 60)) Menit"
-TEXT2="Varian: MIUI"
-TEXT3="MD5 Checksum: </b><code>$MD5CHECK</code>"
-TEXT4="Under commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>"
-TEXT5="Mechine: Git workflows"
-TEXT6="Build Oleh @RooGhz720"
+
 
 tg_sticker() {
    curl -s -X POST "https://api.telegram.org/bot$API_BOT/sendSticker" \
@@ -74,9 +68,11 @@ tg_sticker() {
 }
 
 tg_post_msg() {
+        #infone
+        TEXT1="waktu ditempuh: $(($Diff / 60)) Menit %0A Varian: MIUI %0A MD5 Checksum: </b><code>$MD5CHECK</code> %0A Under commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code> %0A Mechine: Git workflows %0A Build Oleh @RooGhz720"
         curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
         -d "parse_mode=html" \
-        -d text="$1"
+        -d text="$TEXT1"
 }
 
 tg_post_build() {
@@ -146,7 +142,7 @@ make "$DEFCONFIG" O=out
 echo -e "$yellow << compiling the kernel >> \n $white"
 
 # stiker post
-tg_sticker "CAACAgUAAxkBAAGLlS1jnv1FJAsPoU7-iyZf75TIIbD0MQACYQIAAvlQCFTxT3DFijW-FSwE"
+
 
 build_kernel || error=true
 
@@ -182,7 +178,8 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
-                tg_post_msg "$TEXT1" "$TEXT2" "$TEXT3" "$TEXT4" "$TEXT5" "$TEXT6" "$CHATID"
+                tg_sticker "CAACAgUAAxkBAAGLlS1jnv1FJAsPoU7-iyZf75TIIbD0MQACYQIAAvlQCFTxT3DFijW-FSwE"
+                tg_post_msg "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
                 cd ..
                 rm -rf error.log
