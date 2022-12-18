@@ -53,10 +53,19 @@ AnyKernelbranch="master"
 HOSST="MyLabs"
 USEER="aghisna"
 
+# Telegram info
+TEXT="$DEVICE - MIUI VERSION \n Under commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>" "$CHATID"
+
 # setup telegram env
 export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
+
+tg_sticker() {
+   curl -s -X POST "https://api.telegram.org/bot$API_BOT/sendSticker" \
+        -d sticker="$1" \
+        -d chat_id=$CHATID
+}
 
 tg_post_msg() {
         curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
@@ -129,7 +138,9 @@ make O=out clean && make O=out mrproper
 make "$DEFCONFIG" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
-tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE - MIUI VERSION" "$CHATID"
+
+tg_sticker "CAACAgUAAxkBAAGLlFZjnvd6IA-Fa_46l7BGqB_nSuENGgACXwADlyU3OTlhb0wLpyXNLAQ"
+tg_post_msg "$TEXT"
 
 build_kernel || error=true
 
