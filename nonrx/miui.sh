@@ -73,15 +73,13 @@ tg_post_msg() {
 }
 
 tg_post_build() {
-        #Post MD5Checksum alongwith for easeness
-        MD5CHECK=$(md5sum "$1" | cut -d' ' -f1)
 
         #Show the Checksum alongwith caption
         curl --progress-bar -F document=@"$1" "$BOT_BUILD_URL" \
         -F chat_id="$2" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="$3 Redmi Note 10 Pro"
+        -F caption="$3 Redmi Note 10 Pro | MIUI"
 }
 
 tg_error() {
@@ -164,7 +162,8 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 exit 1
         fi
 
-# Infone
+#Post MD5Checksum alongwith for easeness
+MD5CHECK=$(md5sum "$1" | cut -d' ' -f1)
 
 TEXT1="
 *Build Completed Successfully*
@@ -176,8 +175,8 @@ TEXT1="
 * Branch Build* : initial
 * System* : Git Workflows
 * Date* : "$TGL"
-* Last Commit* : <code>$(git log --pretty=format:'"%h : %s"' -1)</code>
-* MD5*: <code>$MD5CHECK</code>
+* Last Commit* : `$(git log --pretty=format:'"%h : %s"' -1)`
+* MD5*: `$MD5CHECK`
 * Author* : @RooGhz720
 ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
 "

@@ -68,6 +68,12 @@ export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
 
+tg_sticker() {
+   curl -s -X POST "https://api.telegram.org/bot$API_BOT/sendSticker" \
+        -d sticker="$1" \
+        -d chat_id=$CHATID
+}
+
 tg_post_msg() {
         curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
         -d "parse_mode=html" \
@@ -75,15 +81,13 @@ tg_post_msg() {
 }
 
 tg_post_build() {
-        #Post MD5Checksum alongwith for easeness
-        MD5CHECK=$(md5sum "$1" | cut -d' ' -f1)
 
         #Show the Checksum alongwith caption
         curl --progress-bar -F document=@"$1" "$BOT_BUILD_URL" \
         -F chat_id="$2" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="$3 Sukses $(($Diff / 60)) Menit | Varian : OSS | <b>MD5 Checksum : </b><code>$MD5CHECK</code> | Build Oleh @RooGhz720"
+        -F caption="$3 Redmi Note 10 Pro | OSS"
 }
 
 tg_error() {
@@ -163,6 +167,24 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 exit 1
         fi
 
+#Post MD5Checksum alongwith for easeness
+MD5CHECK=$(md5sum "$1" | cut -d' ' -f1)
+TEXT1="
+*Build Completed Successfully*
+━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
+* Device* : "$DEVICE"
+* Code name* : Sweet | Sweetin
+* Variant* : "$TYPE"
+* Timer Build* : $(($Diff / 60)) menit
+* Branch Build* : initial
+* System* : Git Workflows
+* Date* : "$TGL"
+* Last Commit* : `$(git log --pretty=format:'"%h : %s"' -1)`
+* MD5*: `$MD5CHECK`
+* Author* : @RooGhz720
+━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
+"
+
         if [ -f "$IMG" ]; then
                 echo -e "$green << cloning AnyKernel from your repo >> \n $white"
                 git clone --depth=1 "$AnyKernel" --single-branch -b "$AnyKernelbranch" zip
@@ -175,9 +197,9 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
-                tg_post_msg "Kernel berhasil di buat. uploading..." "$CHATID"
+                tg_sticker "CAACAgUAAxkBAAGLlS1jnv1FJAsPoU7-iyZf75TIIbD0MQACYQIAAvlQCFTxT3DFijW-FSwE"
+                tg_post_msg "$TEXT1" "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
-                tg_post_msg "===============================" "$CHATID"
                 cd ..
                 rm -rf error.log
                 rm -rf out
