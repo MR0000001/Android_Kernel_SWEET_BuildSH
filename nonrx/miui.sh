@@ -59,22 +59,6 @@ export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
 
-# Infone
-TEXT1="
-*Build Completed Successfully*
-━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
-* Device* : "$DEVICE"
-* Code name* : Sweet | Sweetin
-* Variant* : "$TYPE"
-* Timer Build* : $(($Diff / 60)) menit
-* Branch Build* : initial
-* System* : Git Workflows
-* Date* : "$TGL"
-* Last Commit* : <code>$(git log --pretty=format:'"%h : %s"' -1)</code>
-* MD5*: <code>$MD5CHECK</code>
-* Author* : @RooGhz720
-━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━"
-
 
 tg_sticker() {
    curl -s -X POST "https://api.telegram.org/bot$API_BOT/sendSticker" \
@@ -166,6 +150,7 @@ export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz-dtb
 export dtbo="$MY_DIR"/out/arch/arm64/boot/dtbo.img
 export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
 
+
         if [ -f "$IMG" ]; then
                 echo -e "$green << selesai dalam $(($Diff / 60)) menit and $(($Diff % 60)) detik >> \n $white"
         else
@@ -178,6 +163,24 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 rm -rf error.log
                 exit 1
         fi
+
+# Infone
+
+TEXT1="
+*Build Completed Successfully*
+━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
+* Device* : "$DEVICE"
+* Code name* : Sweet | Sweetin
+* Variant* : "$TYPE"
+* Timer Build* : $(($Diff / 60)) menit
+* Branch Build* : initial
+* System* : Git Workflows
+* Date* : "$TGL"
+* Last Commit* : <code>$(git log --pretty=format:'"%h : %s"' -1)</code>
+* MD5*: <code>$MD5CHECK</code>
+* Author* : @RooGhz720
+━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
+"
 
         if [ -f "$IMG" ]; then
                 echo -e "$green << cloning AnyKernel from your repo >> \n $white"
