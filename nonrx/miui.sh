@@ -59,6 +59,21 @@ export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
 
+echo -e \
+"
+<b>✅ Build Completed Successfully ✅</b>
+━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
+<b> Device</b>: $DEVICE
+<b> Code name</b>: Sweet | Sweetin
+<b> Variant</b>: Miui
+<b> Timer Build</b>: $(($Diff / 60)) menit
+<b> Branch Build</b>: initial
+<b> Date</b>: $TGL
+<b> MD5</b>: <code>$MD5CHECK</code>
+<b> Author</b>: @RooGhz720
+━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
+" > tg.html
+TG_TEXT=$(< tg.html)
 
 
 tg_sticker() {
@@ -68,11 +83,9 @@ tg_sticker() {
 }
 
 tg_post_msg() {
-        #infone
-        TEXT1="waktu ditempuh: $(($Diff / 60)) Menit %0A Varian: MIUI %0A MD5 Checksum: </b><code>$MD5CHECK</code> %0A Under commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code> %0A Mechine: Git workflows %0A Build Oleh @RooGhz720"
         curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
         -d "parse_mode=html" \
-        -d text="$TEXT1"
+        -d text="$TG_TEXT"
 }
 
 tg_post_build() {
