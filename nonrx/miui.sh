@@ -53,8 +53,6 @@ AnyKernelbranch="master"
 HOSST="MyLabs"
 USEER="aghisna"
 
-# Telegram info
-TEXT="$DEVICE - MIUI VERSION \n Under commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>" "$CHATID"
 
 # setup telegram env
 export TGL=$(date +"%d-%m-%Y")
@@ -82,7 +80,7 @@ tg_post_build() {
         -F chat_id="$2" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="$3 Sukses $(($Diff / 60)) Menit | Varian : MIUI | <b>MD5 Checksum : </b><code>$MD5CHECK</code> | Build Oleh @RooGhz720"
+        -F caption="$3 waktu ditempuh $(($Diff / 60)) Menit <br/> Varian : MIUI <br/> <b>MD5 Checksum : </b><code>$MD5CHECK</code> <br/> Under commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code> <br/> Build Oleh @RooGhz720"
 }
 
 tg_error() {
@@ -139,8 +137,7 @@ make "$DEFCONFIG" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
 
-tg_sticker "CAACAgUAAxkBAAGLlFZjnvd6IA-Fa_46l7BGqB_nSuENGgACXwADlyU3OTlhb0wLpyXNLAQ"
-tg_post_msg "$TEXT"
+tg_sticker "CAACAgUAAxkBAAGLlS1jnv1FJAsPoU7-iyZf75TIIbD0MQACYQIAAvlQCFTxT3DFijW-FSwE"
 
 build_kernel || error=true
 
