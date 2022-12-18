@@ -51,7 +51,7 @@ DEFCONFIG="sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
-USEER="aghisna"
+USEER="RooGhz720"
 
 
 # setup telegram env
@@ -59,21 +59,21 @@ export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
 
-echo -e \
-"
-<b>✅ Build Completed Successfully ✅</b>
+# Infone
+TEXT1="
+*Build Completed Successfully*
 ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
-<b> Device</b>: $DEVICE
-<b> Code name</b>: Sweet | Sweetin
-<b> Variant</b>: Miui
-<b> Timer Build</b>: $(($Diff / 60)) menit
-<b> Branch Build</b>: initial
-<b> Date</b>: $TGL
-<b> MD5</b>: <code>$MD5CHECK</code>
-<b> Author</b>: @RooGhz720
-━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
-" > tg.html
-TG_TEXT=$(< tg.html)
+* Device* : "$DEVICE"
+* Code name* : Sweet | Sweetin
+* Variant* : "$TYPE"
+* Timer Build* : $(($Diff / 60)) menit
+* Branch Build* : initial
+* System* : Git Workflows
+* Date* : "$TGL"
+* Last Commit* : <code>$(git log --pretty=format:'"%h : %s"' -1)</code>
+* MD5*: <code>$MD5CHECK</code>
+* Author* : @RooGhz720
+━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━"
 
 
 tg_sticker() {
@@ -192,7 +192,7 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
                 java -jar zipsigner-3.0.jar "$ZIP".zip "$ZIP"-signed.zip
                 tg_sticker "CAACAgUAAxkBAAGLlS1jnv1FJAsPoU7-iyZf75TIIbD0MQACYQIAAvlQCFTxT3DFijW-FSwE"
-                tg_post_msg "line satu \n line dua /n line tiga" "$CHATID"
+                tg_post_msg "$TEXT1" "$CHATID"
                 tg_post_build "$ZIP"-signed.zip "$CHATID"
                 cd ..
                 rm -rf error.log
