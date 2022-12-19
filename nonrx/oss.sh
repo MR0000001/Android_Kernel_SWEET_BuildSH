@@ -148,7 +148,6 @@ make O=out clean && make O=out mrproper
 make "$DEFCONFIG" O=out
 
 echo -e "$yellow << compiling the kernel >> \n $white"
-tg_post_msg "Compile Kernel sedang berlangsung untuk $DEVICE - OSS VERSION" "$CHATID"
 
 build_kernel || error=true
 
