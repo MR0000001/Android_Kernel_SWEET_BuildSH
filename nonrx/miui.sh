@@ -43,7 +43,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 
-# Kernel build release tag
+# Kernel build config
 TYPE="MIUI"
 DEVICE="Redmi note 10 pro"
 KERNEL_NAME="AGHISNA"
@@ -83,7 +83,7 @@ tg_post_build() {
         -F chat_id="$2" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=markdown" \
-        -F caption="$3 \`$MD5CHECK\`"
+        -F caption="$3 MD5 \`$MD5CHECK\`"
 }
 
 tg_error() {

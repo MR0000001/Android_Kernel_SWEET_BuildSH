@@ -42,7 +42,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 export CHATID API_BOT TYPE_KERNEL
 
-# config
+# config oos
 git config --global user.name "RooGhz720"
 git config --global user.email "RooGhz720@gmail.com"
 git remote add addon https://github.com/RooGhz720/RooGhz720.git
@@ -50,10 +50,10 @@ git fetch addon
 sleep 5
 git cherry-pick e1d3bc0257977dbe64b2fa3e9506d21735ee8fef
 git cherry-pick --skip
-git status
+echo "berhasil switch ke oss"
 sleep 2
 
-# Kernel build release tag
+# Kernel build config
 TYPE="OSS"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
@@ -62,11 +62,14 @@ AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
 USEER="aghisna"
+MESIN="Git Workflows"
 
 # setup telegram env
+export WAKTU=$(date +"%T")
 export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
 export BOT_BUILD_URL="https://api.telegram.org/bot$API_BOT/sendDocument"
+
 
 tg_sticker() {
    curl -s -X POST "https://api.telegram.org/bot$API_BOT/sendSticker" \
@@ -76,18 +79,20 @@ tg_sticker() {
 
 tg_post_msg() {
         curl -s -X POST "$BOT_MSG_URL" -d chat_id="$2" \
-        -d "parse_mode=html" \
+        -d "parse_mode=markdown" \
         -d text="$1"
 }
 
 tg_post_build() {
+        #Post MD5Checksum alongwith for easeness
+        MD5CHECK=$(md5sum "$1" | cut -d' ' -f1)
 
         #Show the Checksum alongwith caption
         curl --progress-bar -F document=@"$1" "$BOT_BUILD_URL" \
         -F chat_id="$2" \
         -F "disable_web_page_preview=true" \
-        -F "parse_mode=html" \
-        -F caption="$3 Redmi Note 10 Pro | OSS"
+        -F "parse_mode=markdown" \
+        -F caption="$3 MD5 \`$MD5CHECK\`"
 }
 
 tg_error() {
@@ -149,6 +154,8 @@ build_kernel || error=true
 
 DATE=$(date +"%Y%m%d-%H%M%S")
 KERVER=$(make kernelversion)
+KOMIT=$(git log --pretty=format:'"%h : %s"' -1)
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 export IMG="$MY_DIR"/out/arch/arm64/boot/Image.gz-dtb
 export dtbo="$MY_DIR"/out/arch/arm64/boot/dtbo.img
@@ -167,20 +174,17 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
                 exit 1
         fi
 
-#Post MD5Checksum alongwith for easeness
-MD5CHECK=$(md5sum "$1" | cut -d' ' -f1)
 TEXT1="
 *Build Completed Successfully*
 ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
-* Device* : "$DEVICE"
-* Code name* : Sweet | Sweetin
-* Variant* : "$TYPE"
-* Timer Build* : $(($Diff / 60)) menit
-* Branch Build* : initial
-* System* : Git Workflows
-* Date* : "$TGL"
-* Last Commit* : `$(git log --pretty=format:'"%h : %s"' -1)`
-* MD5*: `$MD5CHECK`
+* Device* : \`$DEVICE\`
+* Code name* : \`Sweet | Sweetin\`
+* Variant Build* : \`$TYPE\`
+* Time Build* : \`$(($Diff / 60)) menit\`
+* Branch Build* : \`$BRANCH\`
+* System Build* : \`$MESIN\`
+* Date Build* : \`$TGL\` \`$WAKTU\`
+* Last Commit* : \`$KOMIT\`
 * Author* : @RooGhz720
 ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
 "
