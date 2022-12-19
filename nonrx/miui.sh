@@ -171,14 +171,14 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
 TEXT1="
 *Build Completed Successfully*
 ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
-* Device* : `"$DEVICE"`
-* Code name* : `Sweet | Sweetin`
-* Variant Build* : `"$TYPE"`
-* Time Build* : `$(($Diff / 60)) menit`
-* Branch Build* : `"$BRANCH"`
-* System Build* : `"$MESIN"`
-* Date Build* : `"$TGL" | "$WAKTU"`
-* Last Commit* : `"$KOMIT"`
+* Device* : \`$DEVICE\`
+* Code name* : \`Sweet | Sweetin\`
+* Variant Build* : \`$TYPE\`
+* Time Build* : \`$(($Diff / 60)) menit\`
+* Branch Build* : \`$BRANCH\`
+* System Build* : \`$MESIN\`
+* Date Build* : \`$TGL\` \`$WAKTU\`
+* Last Commit* : \`$KOMIT\`
 * Author* : @RooGhz720
 ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
 "
