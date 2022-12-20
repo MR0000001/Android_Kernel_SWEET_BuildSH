@@ -86,7 +86,7 @@ tg_error() {
 
 # clang stuff
 		echo -e "$green << cloning clang >> \n $white"
-		git clone --depth=1 https://gitlab.com/Panchajanya1999/azure-clang.git "$HOME"/clang
+		git clone --depth=1 https://github.com/Neutron-Toolchains/neutron-clang.git -b Neutron-14 "$HOME"/clang
 
 	export PATH="$HOME/clang/bin:$PATH"
 	export KBUILD_COMPILER_STRING=$("$HOME"/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
