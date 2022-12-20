@@ -58,7 +58,7 @@ sleep 2
 TYPE="OSS"
 KERNEL_NAME="AGHISNA-RX"
 DEVICE="Redmi note 10 pro"
-DEFCONFIG="sweet_RX_defconfig"
+DEFCONFIG="sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
