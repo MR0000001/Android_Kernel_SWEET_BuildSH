@@ -52,6 +52,7 @@ AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
 USEER="RooGhz720"
+ID="-JellyBlast"
 MESIN="Git Workflows"
 
 
@@ -99,7 +100,7 @@ tg_error() {
 		git clone --depth=1 https://github.com/kdrag0n/proton-clang.git "$HOME"/clang
 
 	export PATH="$HOME/clang/bin:$PATH"
-	export KBUILD_COMPILER_STRING=$("$HOME"/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+	export KBUILD_COMPILER_STRING=$("$HOME"/clang/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')
 
 # Setup build process
 
@@ -132,6 +133,7 @@ export HEADER_ARCH=arm64
 
 export KBUILD_BUILD_HOST="$HOSST"
 export KBUILD_BUILD_USER="$USEER"
+export KBUILD_BUILD_VERSION="$ID"
 
 mkdir -p out
 
