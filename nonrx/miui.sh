@@ -52,7 +52,7 @@ AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
 USEER="RooGhz720"
-ID="-JellyBlast"
+ID="AmiciaDeRune"
 MESIN="Git Workflows"
 
 
