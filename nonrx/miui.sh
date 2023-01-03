@@ -97,7 +97,7 @@ tg_error() {
 
 # clang stuff
 		echo -e "$green << cloning clang >> \n $white"
-		git clone --depth=1 https://github.com/kdrag0n/proton-clang.git "$HOME"/clang
+		git clone --depth=1 -b Neutron-14 https://github.com/RooGhz720/neutron-clang.git "$HOME"/clang
 
 	export PATH="$HOME/clang/bin:$PATH"
 	export KBUILD_COMPILER_STRING=$("$HOME"/clang/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')
