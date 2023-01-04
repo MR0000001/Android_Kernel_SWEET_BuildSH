@@ -43,24 +43,24 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # config
-git config --global user.name "RooGhz720"
-git config --global user.email "RooGhz720@gmail.com"
-git remote add addon https://github.com/RooGhz720/RooGhz720.git
-git fetch addon
+# git config --global user.name "RooGhz720"
+# git config --global user.email "RooGhz720@gmail.com"
+# git remote add addon https://github.com/RooGhz720/RooGhz720.git
+# git fetch addon
 sleep 5
-git cherry-pick e1d3bc0257977dbe64b2fa3e9506d21735ee8fef
-git cherry-pick --skip
+# git cherry-pick e1d3bc0257977dbe64b2fa3e9506d21735ee8fef
+# git cherry-pick --skip
 git status
 echo "oss version"
 sleep 2
 
 # Kernel build release tag
 TYPE="OSS"
-KERNEL_NAME="AGHISNA-RX"
+KERNEL_NAME="Hyperion-RX"
 DEVICE="Redmi note 10 pro"
-DEFCONFIG="sweet_defconfig"
+DEFCONFIG="sweet_user_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
-AnyKernelbranch="master"
+AnyKernelbranch="hyper"
 HOSST="MyLabs"
 USEER="aghisna"
 
