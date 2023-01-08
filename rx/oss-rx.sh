@@ -58,7 +58,7 @@ sleep 2
 TYPE="OSS"
 KERNEL_NAME="Hyperion-RX"
 DEVICE="Redmi note 10 pro"
-DEFCONFIG="sweet_user_defconfig"
+DEFCONFIG="sweet_defconfig"
 AnyKernel="https://github.com/RooGhz720/Anykernel3"
 AnyKernelbranch="hyper"
 HOSST="MyLabs"
