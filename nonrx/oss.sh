@@ -43,9 +43,9 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 export CHATID API_BOT TYPE_KERNEL
 
 # config oos
-git config --global user.name "RooGhz720"
-git config --global user.email "RooGhz720@gmail.com"
-git remote add addon https://github.com/RooGhz720/RooGhz720.git
+git config --global user.name "MR0000001"
+git config --global user.email "mypetpbox-bug@yahoo.it"
+git remote add addon https://github.com/MR0000001/RooGhz720.git
 git fetch addon
 sleep 5
 git cherry-pick e1d3bc0257977dbe64b2fa3e9506d21735ee8fef
@@ -58,7 +58,7 @@ TYPE="OSS"
 KERNEL_NAME="AGHISNA"
 DEVICE="Redmi note 10 pro"
 DEFCONFIG="sweet_defconfig"
-AnyKernel="https://github.com/RooGhz720/Anykernel3"
+AnyKernel="https://github.com/MR0000001/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
 USEER="aghisna"
