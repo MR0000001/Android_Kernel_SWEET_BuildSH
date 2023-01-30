@@ -190,7 +190,7 @@ TEXT1="
 * System Build* : \`$MESIN\`
 * Date Build* : \`$TGL\` \`$WAKTU\`
 * Last Commit* : \`$KOMIT\`
-* Author* : @RooGhz720
+* Author* : @phpside
 ━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
 "
 
