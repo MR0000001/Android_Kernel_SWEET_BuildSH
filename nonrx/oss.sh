@@ -212,7 +212,7 @@ TEXT1="
                 cd ..
                 rm -rf error.log
                 rm -rf out
-                rm -rf zip
+                #rm -rf zip
                 rm -rf testing.log
                 exit
         fi
