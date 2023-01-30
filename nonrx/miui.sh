@@ -46,13 +46,13 @@ export CHATID API_BOT TYPE_KERNEL
 # Kernel build config
 TYPE="MIUI"
 DEVICE="Redmi note 10 pro"
-KERNEL_NAME="AGHISNA"
+KERNEL_NAME="Another"
 DEFCONFIG="sweet_defconfig"
 AnyKernel="https://github.com/MR0000001/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
-USEER="RooGhz720"
-ID="AmiciaDeRune"
+USEER="phpside"
+ID="phpside"
 MESIN="Git Workflows"
 
 
@@ -208,7 +208,7 @@ TEXT1="
                 cd ..
                 rm -rf error.log
                 rm -rf out
-                #rm -rf zip
+                rm -rf zip
                 rm -rf testing.log
                 exit
         fi
