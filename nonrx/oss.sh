@@ -66,6 +66,10 @@ ID="AmiciaDeRune"
 MESIN="Git Workflows"
 
 # setup telegram env
+echo -e "$green << setup telegram >> \n $white"
+echo -e "$green << API_BOT $API_BOT >> \n $white"
+echo -e "$green << CHATID $CHATID >> \n $white"
+
 export WAKTU=$(date +"%T")
 export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
