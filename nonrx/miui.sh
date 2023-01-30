@@ -48,7 +48,7 @@ TYPE="MIUI"
 DEVICE="Redmi note 10 pro"
 KERNEL_NAME="AGHISNA"
 DEFCONFIG="sweet_defconfig"
-AnyKernel="https://github.com/RooGhz720/Anykernel3"
+AnyKernel="https://github.com/MR0000001/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
 USEER="RooGhz720"
@@ -57,6 +57,11 @@ MESIN="Git Workflows"
 
 
 # setup telegram env
+echo -e "$green << setup telegram >> \n $white"
+echo -e "$green << API_BOT $API_BOT >> \n $white"
+echo -e "$green << CHATID $CHATID >> \n $white"
+
+
 export WAKTU=$(date +"%T")
 export TGL=$(date +"%d-%m-%Y")
 export BOT_MSG_URL="https://api.telegram.org/bot$API_BOT/sendMessage"
