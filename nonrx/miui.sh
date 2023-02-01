@@ -165,15 +165,14 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
         if [ -f "$IMG" ]; then
                 echo -e "$green << Compilazione avvenuta con successo in $(($Diff / 60)) minuti e $(($Diff % 60)) secondi >> \n $white"
         else
-		sleep 60
-                #echo -e "$red << Errore nella Compilazione del Kernel!!! >>$white"
-                #tg_post_msg "Uploading log"
-                #tg_error "error.log" "$CHATID"
-                #tg_post_msg "Error Log" "$CHATID"
-                #rm -rf out
-                #rm -rf testing.log
-                #rm -rf error.log
-                #exit 1
+                echo -e "$red << Errore nella Compilazione del Kernel!!! >>$white"
+                tg_post_msg "Uploading log"
+                tg_error "error.log" "$CHATID"
+                tg_post_msg "Error Log" "$CHATID"
+                rm -rf out
+                rm -rf testing.log
+                rm -rf error.log
+                exit 1
         fi
 
 TEXT1="
