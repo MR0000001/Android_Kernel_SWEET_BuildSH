@@ -165,14 +165,15 @@ export dtb="$MY_DIR"/out/arch/arm64/boot/dtb.img
         if [ -f "$IMG" ]; then
                 echo -e "$green << selesai dalam $(($Diff / 60)) menit and $(($Diff % 60)) detik >> \n $white"
         else
-                echo -e "$red << Gagal dalam membangun kernel!!! , cek kembali kode anda >>$white"
-                tg_post_msg "GAGAL!!! uploading log"
-                tg_error "error.log" "$CHATID"
-                tg_post_msg "done" "$CHATID"
-                rm -rf out
-                rm -rf testing.log
-                rm -rf error.log
-                exit 1
+		sleep 60
+                #echo -e "$red << Gagal dalam membangun kernel!!! , cek kembali kode anda >>$white"
+                #tg_post_msg "GAGAL!!! uploading log"
+                #tg_error "error.log" "$CHATID"
+                #tg_post_msg "done" "$CHATID"
+                #rm -rf out
+                #rm -rf testing.log
+                #rm -rf error.log
+                #exit 1
         fi
 
 TEXT1="
