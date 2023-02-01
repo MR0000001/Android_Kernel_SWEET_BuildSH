@@ -45,7 +45,7 @@ export CHATID API_BOT TYPE_KERNEL
 # config oos
 git config --global user.name "MR0000001"
 git config --global user.email "mypetpbox-bug@yahoo.it"
-git remote add addon https://github.com/MR0000001/RooGhz720.git
+git remote add addon https://github.com/MR0000001/Android_Kernel_SWEET_BuildSH.git
 git fetch addon
 sleep 5
 git cherry-pick e1d3bc0257977dbe64b2fa3e9506d21735ee8fef
