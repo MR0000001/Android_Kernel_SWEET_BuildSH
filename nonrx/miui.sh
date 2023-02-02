@@ -182,7 +182,7 @@ TEXT1="
 * Device* : \`$DEVICE\`
 * Code name* : \`Sweet | Sweetin\`
 * Variant Build* : \`$TYPE\`
-* Time Build* : \`$(($Diff / 60)) menit\`
+* Time Build* : \`$(($Diff / 60)) minuti\`
 * Branch Build* : \`$BRANCH\`
 * System Build* : \`$MESIN\`
 * Date Build* : \`$TGL\` \`$WAKTU\`
