@@ -122,7 +122,7 @@ Start=$(date +"%s")
                               OBJCOPY=llvm-objcopy \
                               OBJDUMP=llvm-objdump \
                               STRIP=llvm-strip \
-                              CC=clang \
+                              CC=gcc \
                               CROSS_COMPILE=aarch64-linux-gnu- \
                               CROSS_COMPILE_ARM32=arm-linux-gnueabi-  2>&1 | tee error.log
 
