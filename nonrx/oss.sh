@@ -62,7 +62,7 @@ AnyKernel="https://github.com/MR0000001/Anykernel3"
 AnyKernelbranch="master"
 HOSST="MyLabs"
 USEER="phpside"
-ID="phpside"
+ID="1"
 MESIN="Git Workflows"
 
 # setup telegram env
@@ -113,7 +113,8 @@ tg_error() {
 		git clone --depth=1 -b release/15.x https://gitlab.com/GhostMaster69-dev/cosmic-clang.git "$HOME"/clang
 
 	export PATH="$HOME/clang/bin:$PATH"
-	export KBUILD_COMPILER_STRING=$("$HOME"/clang/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')
+	#export KBUILD_COMPILER_STRING=$("$HOME"/clang/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')
+	export KBUILD_COMPILER_STRING= "Android GCC ITALY"
 
 # Setup build process
 
