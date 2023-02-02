@@ -100,6 +100,13 @@ tg_error() {
         -F caption="$3Failed to build , check <code>error.log</code>"
 }
 
+# clang stuff
+		echo -e "$green << cloning clang >> \n $white"
+		git clone --depth=1 -b release/15.x https://gitlab.com/GhostMaster69-dev/cosmic-clang.git "$HOME"/clang
+
+	export PATH="$HOME/clang/bin:$PATH"
+	export KBUILD_COMPILER_STRING=$("$HOME"/clang/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')
+
 # Setup build process
 
 build_kernel() {
