@@ -50,8 +50,8 @@ KERNEL_NAME="Another"
 DEFCONFIG="sweet_defconfig"
 AnyKernel="https://github.com/MR0000001/Anykernel3"
 AnyKernelbranch="master"
-HOSST="Italy"
-USEER="phpside"
+HOSST="Telegram"
+USEER="t.me/Another_Kernel"
 ID="1"
 MESIN="Git Workflows"
 
@@ -89,7 +89,7 @@ tg_post_build() {
         -F chat_id="$2" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=markdown" \
-        -F caption="$3 MD5 \`$MD5CHECK\`"
+        -F caption="$3 MIUI MD5 \`$MD5CHECK\`"
 }
 
 tg_error() {
